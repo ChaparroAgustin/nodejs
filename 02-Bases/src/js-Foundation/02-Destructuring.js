@@ -6,7 +6,7 @@ const{ DADIR } = process.env;
 
 // console.log(DADIR);
 
-const characters =['flash', 'batman','Green Lantern', 'Superman'];
+const characters =['Flash', 'Wonder Woman','Batman','Green Lantern', 'Superman'];
 
 const [, ,batman] = characters;
 
