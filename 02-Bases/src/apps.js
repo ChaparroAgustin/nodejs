@@ -20,19 +20,29 @@ console.clear();
 //     console.log(user);
 
 // })
+/////////// !!!! Factory funcions 
+// const { getAge, getUUID } = require('./Plugins')
 
-const { getAge, getUUID } = require('./Plugins')
+// const { buildMakePerson } = require ('./js-Foundation/05-Factory')
 
-const { buildMakePerson } = require ('./js-Foundation/05-Factory')
+// const makePerson = buildMakePerson ({ getUUID, getAge })
 
-const makePerson = buildMakePerson ({ getUUID, getAge })
+// const obj = {name: 'John', birthdate:'1991-10-01' };
 
-const obj = {name: 'John', birthdate:'1991-10-01' };
+// const john = makePerson( obj );
 
-const john = makePerson( obj );
+// console.log({ john });
 
-console.log({ john });
+//-----------promesis--------------------
 
+
+const getPokemonById = require ('./js-Foundation/06-Promesis');
+
+
+getPokemonById(4)
+    .then( (pokemon) => console.log({ pokemon}))
+    .catch( ( err ) => console.log(err))
+    .finally( () => console.log('Finalmente'));
 
 
 
