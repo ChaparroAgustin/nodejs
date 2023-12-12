@@ -47,5 +47,7 @@ getPokemonById(4)
 
 //token de acceso
 
+
+
 //Publicas 
 
