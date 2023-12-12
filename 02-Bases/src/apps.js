@@ -45,5 +45,7 @@ getPokemonById(4)
     .finally( () => console.log('Finalmente'));
 
 
+//token de acceso
 
+//Publicas 
 
