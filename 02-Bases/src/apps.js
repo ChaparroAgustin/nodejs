@@ -36,18 +36,25 @@ console.clear();
 //-----------promesis--------------------
 
 
-const getPokemonById = require ('./js-Foundation/06-Promesis');
+//const getPokemonById = require ('./js-Foundation/06-Promesis');
+
+const { buildLogger } = require('./Plugins')
+
+const logger = buildLogger('apps.js');
+
+logger.log('hola mundo');
+logger.error('esto es algo malo')
 
 
-getPokemonById(4)
-    .then( (pokemon) => console.log({ pokemon}))
-    .catch( ( err ) => console.log(err))
-    .finally( () => console.log('Finalmente'));
+// getPokemonById(4)
+//     .then( (pokemon) => console.log({ pokemon}))
+//     .catch( ( err ) => console.log(err))
+//     .finally( () => console.log('Finalmente'));
+
+
+
 
 
 //token de acceso
-
-
-
 //Publicas 
 
