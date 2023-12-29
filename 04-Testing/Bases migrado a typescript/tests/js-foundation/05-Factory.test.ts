@@ -16,7 +16,7 @@ describe('05-Factory', () =>{
     test('makeperson should return a person', ()=>{
 
         const makePerson = buildMakePerson({getUUID, getAge});
-        const Agustin = makePerson({ name: 'Agustin', birthdate: '10-10-1991' });
+        const Agustin = makePerson({ name: 'Agustin', birthdate: '01-10-1991' });
 
         expect(Agustin).toEqual({
             id:'1234',
