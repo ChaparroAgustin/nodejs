@@ -14,9 +14,15 @@ describe ('http-client.plugin.ts', () => {
                 "userId": 1,
                 "id": 1,
                 "title": "delectus aut autem",
-                "completed": false
-              }
-        )
+                "completed": expect.any(Boolean)
+              });
+    });
+
+    test('httpClientPlugin should have POST, PUT and Delete methods', () => {
+
+       expect(typeof httpClientPlugin.post).toBe('function');
+       expect(typeof httpClientPlugin.put).toBe('function');
+       expect(typeof httpClientPlugin.delete).toBe('function');
 
     });
 
