@@ -5,15 +5,29 @@ import { yarg } from "./config/plugins/yargs.plugins";
 
 // console.log(yarg.b)
 
-(async() => {
+(async () => {
     await main();
 })();
 
 async function main() {
 
-    const {b:base, l:limit, s:showTable} = yarg;
-    
-ServerApp.run({base, limit, showTable});
+    const {
+        b: base,
+        l: limit,
+        s: showTable,
+        n: name,
+        d: destination,
+        e: extension }
+        = yarg;
+
+    ServerApp.run({
+        base,
+        limit,
+        showTable,
+        name,
+        destination,
+        extension
+    });
 
 }
 

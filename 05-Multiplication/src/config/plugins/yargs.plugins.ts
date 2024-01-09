@@ -20,6 +20,24 @@ export const yarg = yargs(process.argv)
         default: false,
         describe:'Show multiplication table'
     })
+    .options('n',{
+        alias:'name',
+        type:'string',
+        default:'multiplication-table',
+        describe:'File Name'
+    })
+    .option('d',{
+        alias:'destination',
+        type: 'string',
+        default:'outputs',
+        describe:'File Destination'
+    })
+    .option('e',{
+        alias:'extension',
+        type:'string',
+        default:'txt',
+        describe:'File extension'
+    })
     .check((argv, options)=>{
         if(argv.b < 0) throw 'Error: base must be positive number';
         if(argv.b < 1) throw 'Error: base must be greater than 0';
