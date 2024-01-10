@@ -39,7 +39,7 @@ export class ServerApp {
         if (showTable) console.log(tablePlusHeader);
 
         (wasCreated)
-            ? console.log("File Created")
-            : console.log(error);
+            ? console.log('File Created')
+            : console.error();
     }
 }

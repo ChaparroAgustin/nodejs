@@ -18,5 +18,6 @@ import {CreateTable} from "./create-table.use-case"
             expect( rows ).toBe(5);
           })
 
+          
 
     ));
