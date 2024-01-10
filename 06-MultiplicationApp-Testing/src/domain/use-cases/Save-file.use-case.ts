@@ -30,7 +30,7 @@ export class SaveFile implements SaveFileUseCase {
         try {
 
             fs.mkdirSync(fileDestination, { recursive: true });
-            fs.writeFileSync(`./${fileDestination}/${fileName}.${fileExtension}`, fileContent);
+            fs.writeFileSync(`${fileDestination}/${fileName}.${fileExtension}`, fileContent);
 
             return true;
 

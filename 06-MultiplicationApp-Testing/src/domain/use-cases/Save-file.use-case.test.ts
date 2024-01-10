@@ -5,11 +5,11 @@ describe('save-file.use-case.test', () => {
 
   afterEach(() => {
 
-    const outputFolderExists = fs.existsSync('output/test');
-    if (outputFolderExists) fs.rmSync('output/test', { recursive: true });
+    const outputFolderExists = fs.existsSync('./outputs/');
+    if (outputFolderExists) fs.rmSync('./outputs/', { recursive: true });
 
-    const customutputFolderExists = fs.existsSync('output/customFolder');
-    if (customutputFolderExists) fs.rmSync('output/customFolder', { recursive: true });
+    const customutputFolderExists = fs.existsSync('./outputs');
+    if (customutputFolderExists) fs.rmSync('./outputs', { recursive: true });
 
   })
 
@@ -17,12 +17,12 @@ describe('save-file.use-case.test', () => {
     const saveFile = new SaveFile();
     const options: SaveFileOptions = {
       fileContent: 'This is the test',
-      fileDestination: 'outputs/test',
+      fileDestination: './outputs/test',
       fileName: 'test',
       fileExtension: 'txt'
     };
 
-    const fileDestinationFlag = 'outputs/test/test.txt';
+    const fileDestinationFlag = './outputs/test/test.txt';
 
     const result = saveFile.execute(options);
 
@@ -39,7 +39,7 @@ describe('save-file.use-case.test', () => {
   test('should return false if directory could not be created', () => {
     const customOptions = {
       fileContent: 'This is the test',
-      fileDestination: 'outputs/customFolder',
+      fileDestination: './outputs/customFolder',
       fileName: 'test',
       fileExtension: 'txt'
     };
@@ -60,7 +60,7 @@ describe('save-file.use-case.test', () => {
   test('should return false if file could not be created', () => {
     const customOptions = {
       fileContent: 'This is the test',
-      fileDestination: 'outputs/customFolder',
+      fileDestination: './outputs/customFolder',
       fileName: 'test',
       fileExtension: 'txt'
     };
