@@ -13,21 +13,21 @@ export class FileSystemDatasource implements LogDatasource {
 
     constructor() {
         this.createLogsFiles();
-        
+
     }
-    
-    private createLogsFiles = () =>{
-        if(!fs.existsSync(this.logPath)){
+
+    private createLogsFiles = () => {
+        if (!fs.existsSync(this.logPath)) {
             fs.mkdirSync(this.logPath)
         }
         [
             this.allLogsPath,
             this.mediumLogsPath,
             this.highLogsPath,
-        ].forEach(path =>{
-            if(fs.existsSync( path )) return;
+        ].forEach(path => {
+            if (fs.existsSync(path)) return;
 
-            fs.writeFileSync( path, '' );
+            fs.writeFileSync(path, '');
         })
 
     }
@@ -36,22 +36,22 @@ export class FileSystemDatasource implements LogDatasource {
     async saveLog(newLog: LogEntity): Promise<void> {
 
         const logAsJSON = `${JSON.stringify(newLog)}\n`;
-        
-        fs.appendFileSync(this.allLogsPath, logAsJSON );
 
-        if(newLog.level === LogSeverityLevel.low) return;
+        fs.appendFileSync(this.allLogsPath, logAsJSON);
 
-        if( newLog.level === LogSeverityLevel.medium){
-            fs.appendFileSync( this.mediumLogsPath, logAsJSON);
-        }else{
-            fs.appendFileSync( this.highLogsPath, logAsJSON);
+        if (newLog.level === LogSeverityLevel.low) return;
+
+        if (newLog.level === LogSeverityLevel.medium) {
+            fs.appendFileSync(this.mediumLogsPath, logAsJSON);
+        } else {
+            fs.appendFileSync(this.highLogsPath, logAsJSON);
         }
     }
 
 
-    private getLogsFromFile = (path: string):LogEntity[] => {
+    private getLogsFromFile = (path: string): LogEntity[] => {
 
-        const content= fs.readFileSync( path, 'utf-8' );
+        const content = fs.readFileSync(path, 'utf-8');
 
         const logs = content.split('\n').map(
             log => LogEntity.fromJson(log)
@@ -62,8 +62,8 @@ export class FileSystemDatasource implements LogDatasource {
     }
 
     async getLog(severityLevel: LogSeverityLevel): Promise<LogEntity[]> {
-        
-        switch( severityLevel ){
+
+        switch (severityLevel) {
             case LogSeverityLevel.low:
                 return this.getLogsFromFile(this.allLogsPath)
 
@@ -72,9 +72,9 @@ export class FileSystemDatasource implements LogDatasource {
 
             case LogSeverityLevel.high:
                 return this.getLogsFromFile(this.highLogsPath)
-            
+
             default:
-                throw new Error (`${severityLevel} not implemented`);
+                throw new Error(`${severityLevel} not implemented`);
         }
 
 

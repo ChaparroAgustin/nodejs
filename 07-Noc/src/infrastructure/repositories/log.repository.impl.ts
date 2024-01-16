@@ -8,19 +8,19 @@ import { LogRepository } from "../../domain/repository/log.repository";
 
 export class LogRepositoryImpl implements LogRepository {
 
-// private logDatasource: LogDatasource;
+    // private logDatasource: LogDatasource;
 
-constructor(
-    private readonly logDatasource: LogDatasource
-){}
+    constructor(
+        private readonly logDatasource: LogDatasource
+    ) { }
 
-async saveLog(log: LogEntity): Promise<void> {
-    this.logDatasource.saveLog( log )
-}
+    async saveLog(log: LogEntity): Promise<void> {
+        this.logDatasource.saveLog(log)
+    }
 
-getLog(severityLevel: LogSeverityLevel): Promise<LogEntity[]> {
-    return this.logDatasource.getLog( severityLevel);
-}
+    getLog(severityLevel: LogSeverityLevel): Promise<LogEntity[]> {
+        return this.logDatasource.getLog(severityLevel);
+    }
 
 }
 
