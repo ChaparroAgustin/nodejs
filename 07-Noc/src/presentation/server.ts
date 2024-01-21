@@ -17,10 +17,14 @@ export class Server {
 
     public static start() { // es static ya que no es necesario instanciar a server para poder acceder a la property.
 
+               
+        
         console.log('Server started...')
 
 
-        new SendEmailLogs(emailService, fileSystemLogRepository).execute(['chapy06_0191@hotmail.com']);
+        
+
+        //new SendEmailLogs(emailService, fileSystemLogRepository).execute(['chapy06_0191@hotmail.com']);
 
 
         // const emailService= new EmailService();

@@ -1,3 +1,6 @@
+import { envs } from "./config/plugins/envs.plugin";
+import { LogModel, MongoDatabase } from "./data/mongo";
+import { LogSeverityLevel } from "./domain/entities/log.entity";
 import { Server } from "./presentation/server";
 
 (async () => {
@@ -6,7 +9,24 @@ import { Server } from "./presentation/server";
 
 
 
-function main() {
+async function main() {
+
+    await MongoDatabase.connect({
+        mongoUrl:envs.MONGO_URL,
+        dbName:envs.MONGO_DB_NAME
+    });
+
+
+    //create colecction  = tables, documents = regist.
+
+    const newLog = await LogModel.create({
+        message:'Test messasge from app.ts to mongo',
+        origin: 'app.ts',
+        level: LogSeverityLevel.low,
+    });
+    
+    await newLog.save();
+
 
     Server.start();
 
