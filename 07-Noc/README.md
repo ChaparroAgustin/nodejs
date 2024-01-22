@@ -22,3 +22,6 @@ PROD =false
 4. execute ``npm run dev ``
 
 
+#docker 
+-script to create "docker compose up -d"
+
